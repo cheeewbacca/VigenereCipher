@@ -6,10 +6,7 @@ namespace Vigenere
     {
         static void Main(string[] args)
         {
-            VigenereEncryptionService mess = new VigenereEncryptionService("HELLO");
-            mess.MessageEncrypt("ABC");
-            VigenereDecryptionService mes = new VigenereDecryptionService("HFNLP");
-            mes.MessageDecrypt("ABC");
+            Menu.ChooseProcedure();
             Console.ReadKey();
         }
     }

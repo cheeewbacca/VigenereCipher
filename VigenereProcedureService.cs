@@ -16,8 +16,8 @@ namespace Vigenere
         static void DisplayMessage(string message) => Console.WriteLine(message);
         public static void InvokeMessage(string message)
         {
-            if(!checkSubscription)
-            { 
+            if (!checkSubscription)
+            {
                 ShowMessage += DisplayMessage;
                 checkSubscription = true;
             }

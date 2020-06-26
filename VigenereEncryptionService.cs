@@ -1,23 +1,13 @@
-﻿using System;
-using System.Linq;
-
-namespace Vigenere
+﻿namespace Vigenere
 {
     class VigenereEncryptionService : IEncryptionService
     {
         string Message { get; set; }
-        public VigenereEncryptionService(string message)
-        {
-            Message = message;
-            ShowMessage += DisplayMessage;
-        }
-
-        public delegate void MessageHandler(string message);
-        public event MessageHandler ShowMessage;
+        public VigenereEncryptionService(string message) => Message = message;
 
         public void MessageEncrypt(string key)
         {
-            if (KeyCheck(key))
+            if (VigenereProcedureService.KeyCheck(key))
             {
                 char[] encryptedSymbols = new char[Message.Length];
                 for (int i = 0, j = 0, n = Message.Length; i < n; i++)
@@ -35,15 +25,8 @@ namespace Vigenere
                     }
                 }
                 string encryptedMessage = new string(encryptedSymbols);
-                ShowMessage?.Invoke(encryptedMessage);
+                VigenereProcedureService.InvokeMessage(encryptedMessage);
             }
         }
-        bool KeyCheck(string key)
-        {
-            if (!key.All(char.IsLetter))
-                return false;
-            return true;
-        }
-        static void DisplayMessage(string message) => Console.WriteLine(message);
     }
 }
