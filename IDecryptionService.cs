@@ -2,6 +2,6 @@
 {
     interface IDecryptionService
     {
-        void MessageDecrypt(string key);
+        void MessageDecrypt(string key, string message);
     }
 }

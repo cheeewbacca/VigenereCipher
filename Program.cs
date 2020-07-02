@@ -6,7 +6,7 @@ namespace Vigenere
     {
         static void Main(string[] args)
         {
-            Menu.ChooseProcedure();
+            ProcedureHandler.ChooseProcedure();
             Console.ReadKey();
         }
     }

@@ -2,22 +2,19 @@
 {
     class VigenereEncryptionService : IEncryptionService
     {
-        string Message { get; set; }
-        public VigenereEncryptionService(string message) => Message = message;
-
-        public void MessageEncrypt(string key)
+        public void MessageEncrypt(string key, string message)
         {
             if (VigenereProcedureService.KeyCheck(key))
             {
-                char[] encryptedSymbols = new char[Message.Length];
-                for (int i = 0, j = 0, n = Message.Length; i < n; i++)
+                char[] encryptedSymbols = new char[message.Length];
+                for (int i = 0, j = 0, n = message.Length; i < n; i++)
                 {
-                    if (!char.IsLetter(Message[i]))
-                        encryptedSymbols[i] = Message[i];
+                    if (!char.IsLetter(message[i]))
+                        encryptedSymbols[i] = message[i];
                     else
                     {
-                        int asciiOffset = char.IsUpper(Message[i]) ? 65 : 97;
-                        int pi = Message[i] - asciiOffset;
+                        int asciiOffset = char.IsUpper(message[i]) ? 65 : 97;
+                        int pi = message[i] - asciiOffset;
                         int kj = char.ToUpper(key[j % key.Length]) - 65;
                         int ci = (pi + kj) % 26;
                         j++;

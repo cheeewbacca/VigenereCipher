@@ -2,6 +2,6 @@
 {
     interface IEncryptionService
     {
-        void MessageEncrypt(string key);
+        void MessageEncrypt(string key, string message);
     }
 }
